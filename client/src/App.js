@@ -11,7 +11,7 @@ import Work from "./components/Work";
 import ExpenseTracker from "./components/ExpenseTracker";
 
 import ResizeObserver from 'resize-observer-polyfill';
-
+ 
 // Replace all instances of ResizeObserver with the polyfill
 window.ResizeObserver = ResizeObserver;
  // import your new component

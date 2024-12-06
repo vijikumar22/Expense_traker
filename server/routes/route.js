@@ -13,5 +13,17 @@ router.route('/api/transaction')
 
 router.route('/api/labels')
     .get(controller.get_Labels);
+    
+    
+    
+router.route('/api/budget')
+    .post(controller.create_Budget);
+
+    router.route('/api/budget/progress')
+    .get(controller.get_BudgetProgress);
+    
+
+    
+
 
 module.exports = router;

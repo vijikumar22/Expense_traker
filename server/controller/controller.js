@@ -80,6 +80,7 @@ async function get_Labels(req, res) {
             }
         ]);
 
+
         const data = result.map(v => ({
             _id: v._id,
             name: v.name,
@@ -94,6 +95,61 @@ async function get_Labels(req, res) {
         res.status(400).json({ message: 'Lookup Collection Error' });
     }
 }
+async function create_Budget(req, res) {
+    try {
+        const { budget_name, budget } = req.body;
+
+        if (!budget_name || !budget) {
+            return res.status(400).json({ message: 'Budget name and amount are required.' });
+        }
+
+        const newBudget = new model.Categories({
+            type: budget_name,
+            color: '#FF5733', // Default color or allow users to set it
+        });
+
+        await newBudget.save();
+
+        res.status(201).json({
+            message: 'Budget created successfully!',
+            budget: newBudget,
+        });
+    } catch (err) {
+        res.status(500).json({ message: `Error while creating budget: ${err}` });
+    }
+}
+async function get_BudgetProgress(req, res) {
+    try {
+        const budgets = await model.Categories.find({});
+        const transactions = await model.Transaction.aggregate([
+            {
+                $group: {
+                    _id: '$type',
+                    totalSavings: { $sum: '$amount' },
+                },
+            },
+        ]);
+
+        // Map budgets with their respective progress
+        const progressData = budgets.map((budget) => {
+            const matchingTransaction = transactions.find(
+                (tx) => tx._id === budget.type
+            );
+
+            return {
+                budget_name: budget.type,
+                goal: budget.budget || 0, // Default to 0 if not set
+                current: matchingTransaction?.totalSavings || 0,
+                color: budget.color,
+            };
+        });
+
+        res.status(200).json(progressData);
+    } catch (err) {
+        res.status(500).json({ message: `Error while fetching progress: ${err}` });
+    }
+}
+
 
 module.exports = {
     create_Categories,
@@ -101,5 +157,7 @@ module.exports = {
     create_Transaction,
     get_Transaction,
     delete_Transaction,
-    get_Labels
+    get_Labels,
+    create_Budget,
+    get_BudgetProgress
 };

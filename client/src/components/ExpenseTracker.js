@@ -1,6 +1,7 @@
 import React from 'react';
 import Graph from './Graph';
 import Form from './Form';
+import ExpenseTracker1 from './ExpenseTracker1';
 import {Link} from 'react-router-dom';
 import 'normalize.css';
 import '../App3.css';
@@ -11,6 +12,8 @@ export default function ExpenseTracker() {
       <div className="grid md:grid-cols-2 gap-4">
         <Graph/>
         <Form />
+        {/* <ExpenseTracker1 /> */}
+        
       </div>
     </div>
   );

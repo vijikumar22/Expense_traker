@@ -1,0 +1,31 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "client/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "client/build"
+        }
+      },
+      {
+        "src": "server/package.json",
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": [
+            "server//*.js",
+            "server/.env",
+            "server/db/connection.js",
+            "server/routes/*.js",
+            "server/models/*.js",
+            "server/controllers/*.js",
+            "server/middleware/*.js" 
+          ]
+        }
+      }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "/server/server.js" },
+      { "src": "/(.*)", "dest": "/client/build/$1" }
+    ]
+  }

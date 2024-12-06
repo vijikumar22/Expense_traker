@@ -24,7 +24,7 @@ export function getLabels(transactions = [], categories = []) {
     const totalInvestment = amountSum.find(d => d.type === 'Investment')?.total || 0;
     const totalExpenses = amountSum.find(d => d.type === 'Expense')?.total || 0;
     const totalSavings = totalInvestment - totalExpenses;
-    
+
     return [
         {
             type: 'Expense',
@@ -81,17 +81,15 @@ export function chart_Data(transactions = [], categories = [], custom) {
     return custom || config;
 }
 
-
-export function get_budget(transactions = []) {
-    
+export function get_budget(transactions = [])
+{
     const amountSum = getSum(transactions, 'type');
     const totalInvestment = amountSum.find(d => d.type === 'Investment')?.total || 0;
     const totalExpenses = amountSum.find(d => d.type === 'Expense')?.total || 0;
     const totalSavings = totalInvestment - totalExpenses;
-    console.log(totalSavings);
-    return { totalSavings };//+
-}
+    return totalSavings;
 
+}
 export function getTotal(transactions = []) {
     return _.sumBy(getSum(transactions, 'type'), 'total');
 }
