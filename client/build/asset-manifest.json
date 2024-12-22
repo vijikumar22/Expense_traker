@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7de71aa3.css",
+    "main.js": "/static/js/main.0268ab05.js",
+    "static/media/pie-chart1.gif": "/static/media/pie-chart1.976fdecc598f51c4b31b.gif",
+    "static/media/big-data.gif": "/static/media/big-data.90acca14cc1e080baa7b.gif",
+    "static/media/44.png": "/static/media/44.4f127e4a63b732d5f0ef.png",
+    "static/media/bin-file.gif": "/static/media/bin-file.e7e91a52b378b21e86a4.gif",
+    "static/media/document.gif": "/static/media/document.20ac1fa2f83f6feea0d9.gif",
+    "static/media/pie-chart2.png": "/static/media/pie-chart2.83c8dd7061750d684a78.png",
+    "static/media/bin-file.png": "/static/media/bin-file.6683c79d12259512257a.png",
+    "static/media/database.png": "/static/media/database.2bbe0815cfb2f2e48c84.png",
+    "static/media/55.png": "/static/media/55.c9a60fd3f7621d57b457.png",
+    "static/media/home-banner-background.png": "/static/media/home-banner-background.130ecbb5b256a7f5d901.png",
+    "static/media/TrackMe.png": "/static/media/TrackMe.03fcbe82320d1c5a6549.png",
+    "index.html": "/index.html",
+    "main.7de71aa3.css.map": "/static/css/main.7de71aa3.css.map",
+    "main.0268ab05.js.map": "/static/js/main.0268ab05.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7de71aa3.css",
+    "static/js/main.0268ab05.js"
+  ]
+}
